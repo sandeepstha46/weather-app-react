@@ -35,7 +35,7 @@ class WeatherComponent extends Component {
         fetch(apiUrl)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Error in network');
+                    throw new Error('Please check your internet connection');
                 }
                 return response.json();
             })
@@ -48,7 +48,7 @@ class WeatherComponent extends Component {
                 this.setState({ weatherData: data, isLoading: false });
             })
             .catch((error) => {
-                console.error('Error fetching weather data:', error);
+                console.error('Error fetching data:', error);
                 this.setState({ isLoading: false });
             });
     };
@@ -80,7 +80,6 @@ class WeatherComponent extends Component {
                 <div className="container-fluid mt-5">
                     <div className="row">
                         <div className="col-md-5">
-
                             <div className="text-center d-flex flex-column justify-content-between">
                                 <div className="mt-5">
                                     <h2 className="location">{weatherData.name}, {weatherData.sys.country}</h2>
@@ -92,9 +91,6 @@ class WeatherComponent extends Component {
                                     <h1 className="temperature-reading">{temperatureCelsius} <span className="reading-celcius">°C</span></h1>
                                     <h4 className="temperature-desc">{weatherData.weather[0].description}</h4>
                                 </div>
-                                {/* <div className="d-flex justify-content-center">
-                        <hr className="border-2 w-25 my-5" />
-                    </div> */}
                                 <div className="current-time">
                                     <h5 className="mb-2">{time}</h5>
                                     <h5>{date}</h5>
