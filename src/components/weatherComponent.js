@@ -29,7 +29,6 @@ class WeatherComponent extends Component {
     }
 
     fetchWeatherData = (city, country) => {
-        // Replace 'YOUR_API_KEY' with your OpenWeather API key
         const apiKey = 'c3aafed8cdf3334581e4c4fc4dc18413';
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}`;
 
@@ -60,7 +59,7 @@ class WeatherComponent extends Component {
         if (!weatherData || weatherData.cod !== 200) {
             return (
                 <div>
-                    <p className="text-center mt-3 info">Please search for your desierd location.</p>
+                    <p className="text-center mt-3 info">Please search for your desired location.</p>
                 </div>
             );
         }

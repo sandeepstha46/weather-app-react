@@ -5,24 +5,14 @@ class weatherDataComponent extends Component {
 
     render() {
 
-        const { weatherData } = this.props;
+        const { wind, main, sys } = this.props.weatherData;
+        const { speed } = wind;
+        const { humidity, temp_min, temp_max, pressure, feels_like } = main;
+        const sunRise = new Date(sys.sunrise * 1000).toLocaleTimeString();
+        const sunSet = new Date(sys.sunset * 1000).toLocaleTimeString();
+        const minTemp = (temp_min - 273.15).toFixed(2);
+        const maxTemp = (temp_max - 273.15).toFixed(2);
 
-        const windSpeed = weatherData.wind.speed;
-        const humidity = weatherData.main.humidity;
-        const sunRiseTime = weatherData.sys.sunrise;
-        const sunRiseCalculation = new Date(sunRiseTime * 1000);
-        const sunRise = sunRiseCalculation.toLocaleTimeString();
-        const sunSetTime = weatherData.sys.sunset;
-        const sunSetCalculation = new Date(sunSetTime * 1000);
-        const sunSet = sunSetCalculation.toLocaleTimeString();
-        const minTempKelvin = weatherData.main.temp_min;
-        const maxTempKelvin = weatherData.main.temp_max;
-        const pressure = weatherData.main.pressure;
-
-        // convert feels like from kelvin to celcius
-        const feelsLike = (weatherData.main.feels_like - 273.15).toFixed(2);
-        const minTemp = (minTempKelvin - 273.15).toFixed(2);
-        const maxTemp = (maxTempKelvin - 273.15).toFixed(2);
 
         return (
             <div>
@@ -31,8 +21,8 @@ class weatherDataComponent extends Component {
                         <div className="col-md-3">
                             <div className="card">
                                 <p className='card-title'>Wind</p>
-                                <p className='card-detail mb-1'>{windSpeed} m/s</p>
-                                {/* <p className='card-description mb-0'>East</p> */}
+                                <p className='card-detail mb-1'>{speed} m/s</p>
+                                <p className='card-description mb-0'></p>
                             </div>
                         </div>
                         <div className="col-md-3">
@@ -45,7 +35,7 @@ class weatherDataComponent extends Component {
                         <div className="col-md-3">
                             <div className="card">
                                 <p className='card-title'>Real feel</p>
-                                <p className='card-detail mb-1'>{feelsLike}</p>
+                                <p className='card-detail mb-1'>{feels_like}</p>
                                 <p className='card-description mb-0'></p>
                             </div>
                         </div>
