@@ -1,0 +1,56 @@
+.info{
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.temperature-reading{
+    font-size: 64px;
+    font-weight: 900;
+}
+
+.reading-celcius{
+    font-size: 24px;
+}
+
+.temperature-desc{
+    text-transform: capitalize;
+    color: #808080;
+}
+
+.image-container{
+    padding: 10px 0px 30px;
+}
+
+.temp-desc{
+    padding: 20px 0px;
+}
+
+.current-time{
+    padding: 20px 0px;
+    color: #808080;
+}
+
+.title {
+    padding: 50px 30px 20px 30px;
+}
+
+.list-data{
+    padding: 0px 30px ;
+}
+
+.card {
+    height: 100%;
+    color: rgba(0, 0, 0, 0.4);
+    padding: 16px;
+    border-radius: 16px;
+    background-color: #748df110;
+    border: none;
+}
+
+.card-title, .card-description{
+    font-size: 18px;
+    color: #748df1;
+}
+
+.card-detail{
+    font-size: 32px;
+}
